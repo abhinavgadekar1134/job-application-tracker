@@ -38,6 +38,33 @@ const [notes,setnotes] = useState('');
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
     try {
+
+      axios.post(`${BACKEND_URL}/login`, data, {
+                  headers: {
+                      'Content-Type': 'application/json',
+                  }
+              }).then(res => {
+                  setErrorMsg("");
+      
+                  localStorage.setItem("token", res.data.token)
+                  localStorage.setItem("userName", res.data.userName)
+                  navigate('/dashboard');
+      
+              }).catch(err => {
+                  console.log(err.status == 401);
+                  if (err.status == 401) {
+      
+      
+                      setErrorMsg("Invalid username or password");
+      
+      
+                      console.error(err);
+      
+                  } else {
+                      setErrorMsg("Something went wrong. Please try again." + err);
+                      console.log(err)
+                  }
+              })
       const res = await axios.post(`${BACKEND_URL}/addJob`, setData,{
           headers: {
             "Content-Type": "application/json",
