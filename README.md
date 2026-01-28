@@ -1,8 +1,8 @@
-# 🤖 AI Job Application Tracker
+# 🤖 Job Application Tracker
 
 A full-stack web application to track and manage job applications in one place, with AI assistance to improve the job-hunting process.
 
-🔗 **Live Demo:** https://your-live-link-here.netlify.app
+🔗 **Live Demo:** https://jobs-app-tracker-ag.netlify.app/
 
 
 
